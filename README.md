@@ -63,22 +63,36 @@ A cross-platform notification plugin for Claude Code that provides audio feedbac
 
 2. **Create a plugin marketplace** (if you don't have one already):
    ```bash
-   mkdir -p ~/.claude-code/marketplaces/local
+   mkdir -p ~/.claude/plugins/marketplaces/local/.claude-plugin
    ```
 
 3. **Add marketplace configuration**:
-   Create or edit `~/.claude-code/marketplaces/local/marketplace.json`:
+   First, get your plugin path:
+   ```bash
+   cd ~/code-projects/notifier
+   pwd
+   ```
+
+   Then create `~/.claude/plugins/marketplaces/local/.claude-plugin/marketplace.json`:
    ```json
    {
      "name": "local",
-     "plugins": {
-       "notifier": {
-         "path": "/home/YOUR_USERNAME/code-projects/notifier"
+     "owner": {
+       "name": "Local",
+       "url": ""
+     },
+     "description": "Local marketplace for development and testing",
+     "plugins": [
+       {
+         "name": "notifier",
+         "source": "/home/YOUR_USERNAME/code-projects/notifier",
+         "version": "1.0.0",
+         "description": "Cross-platform notification plugin"
        }
-     }
+     ]
    }
    ```
-   **Important**: Replace `/home/YOUR_USERNAME/code-projects/notifier` with the actual absolute path where you cloned the repository.
+   **Important**: Replace `/home/YOUR_USERNAME/code-projects/notifier` with the actual path from the `pwd` command.
 
 4. **Install the plugin in Claude Code**:
    ```
