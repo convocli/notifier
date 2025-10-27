@@ -9,7 +9,7 @@
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
   "hooks": {
-    "Stop": [
+    "Notification": [
       {
         "hooks": [
           {
