@@ -1,23 +1,12 @@
 {
   "hooks": {
-    "UserPromptSubmit": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/test-hook.sh"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "matcher": ".*",
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
+            "command": "printf '\\a'"
           }
         ]
       }
