@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '\\a'"
+            "command": "echo \"Hook ran at $(date)\" >> /tmp/notifier-test.log && printf '\\a'"
           }
         ]
       }
