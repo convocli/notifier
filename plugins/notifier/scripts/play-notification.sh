@@ -4,7 +4,13 @@
 # Supports audio on desktop and vibration on Termux/Android
 #
 
-# Configuration via environment variables
+# Load config file if it exists
+CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/claude-notifier/config"
+if [[ -f "$CONFIG_FILE" ]]; then
+    source "$CONFIG_FILE"
+fi
+
+# Configuration via environment variables (config file takes precedence)
 SOUND="${NOTIFIER_SOUND:-chime}"              # Sound to play: bell, chime, subtle, complete
 VIBRATE_DURATION="${NOTIFIER_VIBRATE_DURATION:-200}"  # Vibration duration in milliseconds
 MODE="${NOTIFIER_MODE:-auto}"                  # Mode: auto, vibrate-only, sound-only, both
