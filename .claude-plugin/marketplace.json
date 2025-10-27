@@ -15,7 +15,8 @@
       "name": "notifier",
       "source": "./plugins/notifier",
       "version": "1.0.0",
-      "description": "Cross-platform notification plugin that plays sounds on desktop and vibrates on Termux/Android when Claude Code is awaiting user input"
+      "description": "Cross-platform notification plugin that plays sounds on desktop and vibrates on Termux/Android when Claude Code is awaiting user input",
+      "hooks": "./plugins/notifier/hooks/hooks.json"
     }
   ]
 }
