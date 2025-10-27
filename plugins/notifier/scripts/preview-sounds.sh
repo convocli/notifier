@@ -41,7 +41,8 @@ for sound in bell chime subtle complete click clicks mech mechs thock thocks; do
     echo -e "${GREEN}▶${NC} ${sound}.wav - ${sounds[$sound]}"
 
     # Play the sound using the notification script
-    NOTIFIER_SOUND=$sound "$SCRIPT_DIR/play-notification.sh"
+    # Set NOTIFIER_PREVIEW_MODE=true to disable debouncing during preview
+    NOTIFIER_SOUND=$sound NOTIFIER_PREVIEW_MODE=true "$SCRIPT_DIR/play-notification.sh"
 
     # Wait between sounds
     sleep 1.5
