@@ -8,18 +8,5 @@
   },
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "printf '\\a'",
-            "description": "Notifier plugin beep"
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": "./hooks/hooks.json"
 }
