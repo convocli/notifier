@@ -1,3 +1,7 @@
+---
+description: Preview all available notification sounds
+---
+
 # Preview Notifier Sounds
 
 Play all notification sounds in sequence to help you choose your preferred sound.

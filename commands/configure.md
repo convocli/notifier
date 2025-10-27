@@ -1,3 +1,7 @@
+---
+description: Configure notification sound and vibration settings for the Notifier plugin
+---
+
 # Configure Notifier Sound
 
 Interactive configuration for the Claude Code Notifier plugin.
