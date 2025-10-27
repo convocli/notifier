@@ -13,7 +13,7 @@
   "plugins": [
     {
       "name": "notifier",
-      "source": "./",
+      "source": "./plugins/notifier",
       "version": "1.0.0",
       "description": "Cross-platform notification plugin that plays sounds on desktop and vibrates on Termux/Android when Claude Code is awaiting user input"
     }
