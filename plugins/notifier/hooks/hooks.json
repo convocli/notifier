@@ -1,25 +1,13 @@
 {
   "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo \"PostToolUse hook ran at $(date)\" >> /tmp/post-tool-test.log",
-            "description": "Test hook to verify registration"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "matcher": ".*",
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"Stop hook ran at $(date)\" >> /tmp/stop-test.log && printf '\\a'",
-            "description": "Test Stop hook"
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh",
+            "description": "Play notification sound when Claude stops and awaits user input"
           }
         ]
       }
