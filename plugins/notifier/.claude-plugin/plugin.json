@@ -8,5 +8,5 @@
   },
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
-  "hooks": "../hooks/hooks.json"
+  "hooks": "./hooks.json"
 }
