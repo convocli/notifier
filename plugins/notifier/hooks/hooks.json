@@ -1,12 +1,23 @@
 {
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/marty/code-projects/notifier/plugins/notifier/scripts/test-hook.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": ".*",
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
+            "command": "/home/marty/code-projects/notifier/plugins/notifier/scripts/play-notification.sh"
           }
         ]
       }
