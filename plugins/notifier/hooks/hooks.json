@@ -1,12 +1,25 @@
 {
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"PostToolUse hook ran at $(date)\" >> /tmp/post-tool-test.log",
+            "description": "Test hook to verify registration"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": ".*",
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"Hook ran at $(date)\" >> /tmp/notifier-test.log && printf '\\a'"
+            "command": "echo \"Stop hook ran at $(date)\" >> /tmp/stop-test.log && printf '\\a'",
+            "description": "Test Stop hook"
           }
         ]
       }
