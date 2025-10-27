@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/marty/code-projects/notifier/plugins/notifier/scripts/test-hook.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/test-hook.sh"
           }
         ]
       }
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/marty/code-projects/notifier/plugins/notifier/scripts/play-notification.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
           }
         ]
       }
