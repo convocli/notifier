@@ -8,5 +8,16 @@
   },
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
-  "hooks": "./hooks.json"
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
+          }
+        ]
+      }
+    ]
+  }
 }
