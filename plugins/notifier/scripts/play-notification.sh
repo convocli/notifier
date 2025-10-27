@@ -9,6 +9,24 @@ LOG_FILE="${HOME}/.config/claude-notifier/debug.log"
 mkdir -p "$(dirname "$LOG_FILE")"
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Hook triggered" >> "$LOG_FILE"
 
+# Debounce logic - only play sound if enough time has passed since last trigger
+DEBOUNCE_FILE="${HOME}/.config/claude-notifier/last-trigger"
+DEBOUNCE_SECONDS=2  # Wait at least 2 seconds between notifications
+CURRENT_TIME=$(date +%s)
+
+if [[ -f "$DEBOUNCE_FILE" ]]; then
+    LAST_TRIGGER=$(cat "$DEBOUNCE_FILE")
+    TIME_DIFF=$((CURRENT_TIME - LAST_TRIGGER))
+    if [[ $TIME_DIFF -lt $DEBOUNCE_SECONDS ]]; then
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Debounced (${TIME_DIFF}s since last)" >> "$LOG_FILE"
+        exit 0
+    fi
+fi
+
+# Update last trigger time
+echo "$CURRENT_TIME" > "$DEBOUNCE_FILE"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Playing notification" >> "$LOG_FILE"
+
 # Load config file if it exists
 CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/claude-notifier/config"
 if [[ -f "$CONFIG_FILE" ]]; then
