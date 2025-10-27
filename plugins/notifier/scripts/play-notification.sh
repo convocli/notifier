@@ -4,6 +4,11 @@
 # Supports audio on desktop and vibration on Termux/Android
 #
 
+# Debug logging
+LOG_FILE="${HOME}/.config/claude-notifier/debug.log"
+mkdir -p "$(dirname "$LOG_FILE")"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Hook triggered" >> "$LOG_FILE"
+
 # Load config file if it exists
 CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/claude-notifier/config"
 if [[ -f "$CONFIG_FILE" ]]; then
