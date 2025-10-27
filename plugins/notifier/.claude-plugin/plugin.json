@@ -8,39 +8,5 @@
   },
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/play-notification.sh"
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": "./hooks/hooks.json"
 }
