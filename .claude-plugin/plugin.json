@@ -5,6 +5,5 @@
   "author": "Marty",
   "license": "MIT",
   "keywords": ["notification", "sound", "vibration", "termux", "android", "accessibility"],
-  "commands": "../commands",
   "hooks": "./hooks/hooks.json"
 }
