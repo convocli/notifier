@@ -15,32 +15,40 @@ cd notifier
 ### Step 2: Create Plugin Marketplace
 
 ```bash
-mkdir -p ~/.claude-code/marketplaces/local
+mkdir -p ~/.claude/plugins/marketplaces/local/.claude-plugin
 ```
 
 ### Step 3: Configure Marketplace
 
-Create or edit `~/.claude-code/marketplaces/local/marketplace.json`:
-
-```json
-{
-  "name": "local",
-  "plugins": {
-    "notifier": {
-      "path": "/home/YOUR_USERNAME/code-projects/notifier"
-    }
-  }
-}
-```
-
-**Replace `/home/YOUR_USERNAME/code-projects/notifier`** with your actual path.
-
-**To find your actual path:**
+Get your plugin path:
 ```bash
 cd ~/code-projects/notifier
 pwd
 ```
-Copy the output and use it in the marketplace.json file.
+
+Create marketplace.json in **TWO locations** (both required):
+
+1. `~/.claude/plugins/marketplaces/local/marketplace.json` (ROOT)
+2. `~/.claude/plugins/marketplaces/local/.claude-plugin/marketplace.json`
+
+**Content for BOTH files:**
+```json
+{
+  "name": "local",
+  "owner": {"name": "Local", "url": ""},
+  "description": "Local marketplace",
+  "plugins": [
+    {
+      "name": "notifier",
+      "source": "PASTE_YOUR_PATH_HERE",
+      "version": "1.0.0",
+      "description": "Cross-platform notification plugin"
+    }
+  ]
+}
+```
+
+Replace `PASTE_YOUR_PATH_HERE` with the output from `pwd` above.
 
 ### Step 4: Install in Claude Code
 
