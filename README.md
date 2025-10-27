@@ -52,72 +52,67 @@ A cross-platform notification plugin for Claude Code that provides audio feedbac
 
 ### Installing the Plugin
 
-#### Option 1: Install from GitHub (Recommended)
+#### Option 1: Install from GitHub (Recommended - 2 commands!)
+
+Simply run these two commands in Claude Code:
+
+```
+/plugin marketplace add convocli/notifier
+/plugin install convocli-notifier:notifier
+```
+
+That's it! The plugin will be installed and ready to use.
+
+**Verify installation**:
+```
+/plugin list
+```
+
+**Test the plugin**:
+```
+/notifier:preview
+```
+This will play all 10 notification sounds so you can choose your favorite!
+
+#### Option 2: Local Development Installation
+
+For local development or testing:
 
 1. **Clone the repository**:
    ```bash
-   cd ~/code-projects  # Or your preferred directory
+   cd ~/code-projects
    git clone https://github.com/convocli/notifier.git
    cd notifier
    ```
 
-2. **Create a plugin marketplace** (if you don't have one already):
+2. **Create local marketplace**:
    ```bash
    mkdir -p ~/.claude/plugins/marketplaces/local/.claude-plugin
+   mkdir -p ~/.claude/plugins/marketplaces/local/plugins
+   ln -s $(pwd) ~/.claude/plugins/marketplaces/local/plugins/notifier
    ```
 
-3. **Add marketplace configuration**:
-   First, get your plugin path:
+3. **Create marketplace.json** in both locations:
    ```bash
-   cd ~/code-projects/notifier
-   pwd
-   ```
-
-   Then create `~/.claude/plugins/marketplaces/local/.claude-plugin/marketplace.json`:
-   ```json
+   cat > ~/.claude/plugins/marketplaces/local/marketplace.json << 'EOF'
    {
      "name": "local",
-     "owner": {
-       "name": "Local",
-       "url": ""
-     },
-     "description": "Local marketplace for development and testing",
+     "owner": {"name": "Local", "url": ""},
+     "description": "Local development marketplace",
      "plugins": [
-       {
-         "name": "notifier",
-         "source": "/home/YOUR_USERNAME/code-projects/notifier",
-         "version": "1.0.0",
-         "description": "Cross-platform notification plugin"
-       }
+       {"name": "notifier", "source": "./plugins/notifier", "version": "1.0.0"}
      ]
    }
-   ```
-   **Important**: Replace `/home/YOUR_USERNAME/code-projects/notifier` with the actual path from the `pwd` command.
+   EOF
 
-4. **Install the plugin in Claude Code**:
+   cp ~/.claude/plugins/marketplaces/local/marketplace.json \
+      ~/.claude/plugins/marketplaces/local/.claude-plugin/marketplace.json
+   ```
+
+4. **Install**:
    ```
    /plugin install local:notifier
    ```
-
-5. **Verify installation**:
-   ```
-   /plugin list
-   ```
-   You should see `notifier` in the list of installed plugins.
-
-6. **Test the plugin**:
-   ```
-   /notifier:preview
-   ```
-   This will play all 10 notification sounds so you can choose your favorite!
-
-#### Option 2: Direct GitHub Installation (Future)
-
-Once this plugin is published to a public marketplace, you'll be able to install it directly:
-```
-/plugin install convocli:notifier
-```
-(This option will be available after the plugin is published)
 
 ### Quick Start
 
